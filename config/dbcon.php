@@ -1,32 +1,23 @@
 <?php
 
-//new dbcon(); //working
+
 /**
 * 	DB connection
 */
-class dbcon
-{
-	private $host="127.0.0.1";
-	private $user="ks";
-	private $pass="1";
-	private $db="k1";
 
-	public function __construct()
-	{
-		# code...
-		//$conn=mysqli_connect($host, $user, $pass, $db);
-		//$conn= new mysqli($this->host, $user, $pass, $db);
-		$conn= new mysqli($this->host, $this->user, $this->pass, $this->db);
+$host="127.0.0.1";
+$user="ks";
+$pass="1";
+$db="k1";
+//$connectionString=null;
 
-		if($conn->connect_error){
-			echo "DB Connect error: <br/>";
-			echo $conn->connect_error();
-			exit;
-		}
-	}
+//$conn=new mysqli($host, $user, $pass, $db); //working
 
-
-}
+//$res=mysqli_query($xcon, "select * from xx;");
+/*$res=$conn -> query( "select * from xx;");
+if(!$res){
+	echo "query error<br>".mysqli_error($conn);
+}*/
 
 
 ?>
