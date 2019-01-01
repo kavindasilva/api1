@@ -14,7 +14,8 @@ class Entity
 	public $conn=null; // public: to be worked in child classes
 	function __construct()
 	{
-		require_once __DIR__."/../config/dbcon.php";
+		//require_once __DIR__."/../config/dbcon.php";
+		require __DIR__."/../config/dbcon.php"; //require_once not working
 
 		# code...
 		$conn=new mysqli($host, $user, $pass, $db); //working

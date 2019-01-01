@@ -20,7 +20,7 @@ class Read extends Entity
 		//print_r($this->conn);
 	}
 
-	public function read(){
+	public function readTbl(){
 		$resObj= array();
 		//$sql="SELECT * from kk; ";
 		$sql="SELECT * from enc1; ";
@@ -30,23 +30,34 @@ class Read extends Entity
 		if(!$this->result){
 			echo __CLASS__." : ",__FUNCTION__," error<br/>";
 			echo $this->conn->error; // error printing //works
-			$resObj["result"]=false;
-			return $resObj;
+			$resObj["result"]="false";
+			$resObj["error"]["message"]=$this->conn->error;
+			//return $resObj;
 			//return null;
 		}
 		else{
 			$i=0;
-			$resObj["result"]=true;
-			while($row=$this->result->fetch_array(MYSQLI_ASSOC)){ // working
+			$resObj["result"]="true";
+			/*while($row=$this->result->fetch_array(MYSQLI_ASSOC)){ // working
 				print_r($row);
-			}
+			}*/
+			//$resObj['sqlRes']=$this->result; //to return sqli result
+
+			while($row=$this->result->fetch_array(MYSQLI_ASSOC)){ // working
+				//print_r($row);
+				$resObj["data"][$i]=$row;
+				$i++;
+			}/**/
 		}
+
+		return $resObj;
+
 	}
 }
 
 
-$xc=new Read();
-$xc->read();
+//$xc=new Read();
+//$xc->readTbl();
 
 
 ?>
