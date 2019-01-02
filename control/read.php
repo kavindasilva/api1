@@ -31,7 +31,8 @@ class ControlRead
 		/*while($row=$this->resObj["sqlRes"]->fetch_array(MYSQLI_ASSOC)){ // working
 			print_r($row); //working
 		}/**/
-		return json_encode($this->resObj);
+		//return json_encode($this->resObj);
+		return $this->resObj;
 
 	}
 }
